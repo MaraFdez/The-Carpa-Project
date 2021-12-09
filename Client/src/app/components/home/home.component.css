@@ -1,0 +1,32 @@
+body {
+  background-image: url("../../../assets/img/Carpa.jpg");
+  background-repeat: no-repeat;
+  background-size: 40%;
+  background-position-x: 900px;
+  background-position-y: 10px;
+}
+
+.home {
+  width: 760px;
+  height: 320px;
+  align-content: center;
+  padding: 20 px;
+  margin: 160px auto 40px auto;
+  /*margin: 120px auto 40px auto;
+
+   font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14.5px; */
+
+  font-family: monospace;
+  font-size: 13.15px;
+}
+
+.main {
+  margin-top: -15px;
+  margin-bottom: 10px;
+}
+
+a {
+  color: rgb(83, 83, 83);
+}

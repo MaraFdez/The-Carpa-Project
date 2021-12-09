@@ -1,0 +1,40 @@
+<div class="card">
+    <div class="card-content login">
+        <p class="subtitle">
+            Ready to let your creation swim at ease in this waters?
+        </p>
+    </div>
+    
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username" class="column is-narrow">Username</label>
+            <input type="text" class="input is-small" id="username" required [(ngModel)]="catalogElement.username" name="username"/>
+        </div>
+        <div class="form-group">
+            <label for="projectName" class="column is-narrow">Project name</label>
+            <input type="text" class="input is-small" id="projectName" required [(ngModel)]="catalogElement.projectName" name="projectName"/>
+        </div>
+        <div class="form-group">
+            <label for="description" class="column is-narrow">Description</label>
+            <input type="text" class="input is-small" id="description" required [(ngModel)]="catalogElement.description" name="description"/>
+        </div>
+        <div class="form-group">
+            <label for="image" class="column is-narrow">Project image</label>
+            <input type="file" class="input is-small"  accept="image/jpg, image/png" (change)="selectFileImage($event)" id="image" name="image"/>
+        </div>
+        <div class="form-group">
+            <label for="price" class="column is-narrow">Price</label>
+            <input type="text" class="input is-small" id="price" required [(ngModel)]="catalogElement.price" name="price"/>
+        </div>
+        <div class="form-group">
+            <label for="data" class="column is-narrow">Project file <span class="aclaration">&#40;.stl&#41;</span></label>
+            <input type="file" class="input is-small" id="file" accept=".stl" required (change)="selectFile($event)" name="file"/>
+        </div>
+        <button type="submit" class="button is-small">Upload project</button>
+    </form>
+    
+
+</div>
+
+
+  

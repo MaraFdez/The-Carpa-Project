@@ -1,0 +1,29 @@
+.hero {
+  background-color: #5a8471;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+}
+
+.navbar-end {
+  margin: -10px 25px -55px auto;
+}
+
+.hero-body {
+  margin: -13px auto -35px auto;
+}
+
+.subtitle {
+  color: whitesmoke;
+  margin-top: -9px;
+  margin-left: -35px;
+  font-size: 12px;
+}
+
+.container {
+  margin-left: 20px;
+  font-size: 12px;
+}
+
+a {
+  color: whitesmoke;
+}

@@ -1,0 +1,24 @@
+<button class="back" type="button" [routerLink]="['/warehouse']">BACK</button>
+
+<div class="card">
+
+    <div class="card-image" *ngIf="this.selectedCatalogElement.image == null || this.selectedCatalogElement.image == ''">
+        <img src="../../../assets/img/ultimakerlinea.png" alt="Model image" width="200">
+    </div>
+    <div class="card-image" *ngIf="this.selectedCatalogElement.image != null && this.selectedCatalogElement.image != ''">
+        <img src="{{selectedCatalogElement?.image}}" alt="Model image" width="350">
+    </div>
+
+    <div class="central">
+        <span class="header">
+            <h2 class="projectName">{{ selectedCatalogElement.projectName | uppercase }}</h2>
+            <button type="button">{{selectedCatalogElement.price}} €</button>
+        </span>
+        <p class="subtitle">A creation by {{selectedCatalogElement.username}}</p><br/>
+        <p class="info">{{selectedCatalogElement.description}}</p>
+        <p class="date">Published on {{selectedCatalogElement.publicationDate}}</p>
+    </div>
+
+</div>
+
+

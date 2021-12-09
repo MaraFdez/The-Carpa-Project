@@ -1,0 +1,116 @@
+.header {
+  /* box configuration */
+  height: 30px;
+
+  margin: 6px 0px 10px 30px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.subtitle {
+  font-size: 11.4px;
+  margin: 8px 25px;
+}
+
+.next-page {
+  border: none;
+  background-color: rgb(62, 62, 62);
+  padding: 15px 15px 15px 15px;
+  border-radius: 4px;
+  color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5.41' height='12' viewBox='0 0 7.41 12'%3E%3Cpath d='M10,6,8.59,7.41,13.17,12,8.59,16.59,10,18l6-6Z' transform='translate(-8.59 -6)' fill='%23fff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.previous-page {
+  border: none;
+  background-color: rgb(62, 62, 62);
+  padding: 12px 20px 15px 10px;
+  border-radius: 5px;
+  color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='5.41' height='12' viewBox='0 0 7.41 12'%3E%3Cpath d='M16,16.6 11.4,12 16,7.4 14.6,6 8.6,12 14.6,18Z'  transform='translate(-8.59 -6)' fill='%23fff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 12px center;
+}
+
+.page-number {
+  font-size: 10px;
+  color: rgba(74, 74, 74, 0.659);
+  padding: 10px;
+}
+
+.catalog-block {
+  width: 1500px;
+  margin: auto;
+  margin-top: 50px;
+  display: table;
+  float: inline-start;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-header-title {
+  font-size: 14px;
+  margin-top: -2px;
+  padding-bottom: 5px;
+}
+
+.username {
+  color: rgb(152, 152, 152);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+.card-image {
+  display: flex;
+  height: 160px;
+  overflow: hidden;
+  margin: auto;
+  text-align: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 380px;
+  justify-content: center;
+  margin: 0px 30px 30px 0px;
+  float: left;
+  padding: 0.75rem;
+}
+
+.card-content {
+  padding-top: 12px;
+}
+.content {
+  color: rgba(74, 74, 74);
+  list-style: none;
+  width: 230px;
+  font-size: 13.5px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.download {
+  margin-top: auto;
+}
+
+button {
+  background-color: #5a847126;
+}

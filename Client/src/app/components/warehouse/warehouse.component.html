@@ -1,0 +1,43 @@
+<div class="header">
+    <span>
+        <button class="previous-page" type="button" (click)="previousPage()"></button>
+        <span class="page-number"> {{ page }} </span>
+        <button class="next-page" type="button" (click)="nextPage()"></button>
+    </span>
+    
+    <p class="subtitle">Psst! Here you can find other user's greatest 3D models and download them for your 3D printer.</p>
+</div>
+
+<div class="container">
+    <div class="catalog-block">
+        <div *ngFor="let catalogElement of catalogElements | paginate:{itemsPerPage: 12, currentPage: page },  let i = index " class="card">
+            <a [routerLink]="['/warehouse/project/', catalogElement.id]">
+                <header>
+                    <p class="card-header-title">
+                        {{catalogElement.projectName | uppercase}} &nbsp; <span class="username">-&nbsp;&nbsp;{{catalogElement.username}}</span>
+                    </p>
+                </header>
+                
+                <div class="card-image" *ngIf="this.catalogElement.image == null || this.catalogElement.image == ''">
+                    <img src="../../../assets/img/ultimakerlinea.jpg" alt="Model image" width="125">
+                </div>
+                <div class="card-image" *ngIf="this.catalogElement.image != null && this.catalogElement.image != ''">
+                    <img src="{{catalogElement.image}}" alt="Model image" width="175">
+                </div> 
+
+    
+                <div class="card-content">
+                    <div class="content">
+                        <p>{{catalogElement.description}}</p>
+                    </div>
+                </div>
+            </a>
+
+            <div class="download">
+                <a [routerLink]="['/checkout']">
+                    <button class="button is-small is-fullwidth">{{catalogElement.price}}€</button>
+                </a>
+            </div>
+            
+        </div>
+    </div>

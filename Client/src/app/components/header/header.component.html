@@ -1,0 +1,31 @@
+<section class="hero">
+    <div id="navbarMenuHeroA" class="navbar-menu">
+        <div class="navbar-end">
+          <a class="navbar-item">
+            My Account
+          </a>
+          <a class="navbar-item">
+            Sign in
+          </a>
+        </div>
+    </div>
+    
+    <div class="hero-body">
+      <img src="../../assets/img/Logo.png" alt="CARPA" width="125">
+      <p class="subtitle">
+        A fish tank for all your designs.
+      </p>
+    </div>
+
+    <div class="hero-foot">
+        <nav class="tabs is-boxed">
+        <div class="container">
+            <ul>
+            <li [class.is-active]="isHome()==true"><a [routerLink]="['']">Home</a></li>
+            <li [class.is-active]="isUpload()==true"><a [routerLink]="['/upload']">Upload</a></li>
+            <li [class.is-active]="isWarehouse()==true"><a [routerLink]="['/warehouse']">Warehouse</a></li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+</section>
