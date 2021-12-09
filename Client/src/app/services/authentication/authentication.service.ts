@@ -1,34 +1,46 @@
-// import { Observable } from 'rxjs';
-// import { AngularFireAuth } from "@angular/fire/auth";
-// import firebase from 'firebase/app';
+import { Injectable } from '@angular/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { AngularFireAuth } from "@angular/fire/auth";
+import firebase from 'firebase/app';
 
-// ​
-// export class AuthenticationService {
+@Injectable({
+    providedIn: 'root'
+})
+​export class AuthenticationService {
 
-//   userData: Observable<firebase.User | null>;
+  userData: Observable<firebase.User | null>;
+  authenticationState = new BehaviorSubject(false);
 
-//   constructor(private angularFireAuth : AngularFireAuth) {
-//     this.userData = angularFireAuth.authState;
-//   }
+  constructor(private angularFireAuth : AngularFireAuth) {
+    this.userData = angularFireAuth.authState;
+  }
 
-//   signUp(email: string, password: string): void {
-//     this.angularFireAuth.createUserWithEmailAndPassword(email, password).then(res => {
-//       console.log('You have successfully signed up', res);
-//     }).catch(error => {
-//       console.log('Something went wrong:', error.message);
-//     });
-//   }
+  signUp(email: string, password: string): Promise<boolean> {
+    return this.angularFireAuth.createUserWithEmailAndPassword(email, password).then(res => {
+      console.log('You have successfully signed up', res);
+      return true;
+    }).catch(error => {
+      console.log('Something went wrong:', error.message);
+      return false;
+    });
+  }
 
-//   signIn(email: string, password: string): void {
-//     this.angularFireAuth.signInWithEmailAndPassword(email, password).then(res => {
-//       console.log('Welcome');
-//     }).catch(error => {
-//       console.log('Something went wrong:', error.message);
-//     });
-//   }
+  signIn(email: string, password: string): Promise<boolean> {
+    return this.angularFireAuth.signInWithEmailAndPassword(email, password).then(res => {
+      console.log('Welcome', res);
+      return true;
+    }).catch(error => {
+      console.log('Something went wrong:', error.message);
+      return false;
+    });
+  }
 
-//   signOut(): void {
-//     this.angularFireAuth.signOut();
-//   }
+  signOut(): void {
+    this.angularFireAuth.signOut();
+  }
 
-// }
+  isAuthenticated(){
+    return this.authenticationState.value;
+  }
+
+}

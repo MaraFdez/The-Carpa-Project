@@ -1,36 +1,37 @@
-// import { AuthenticationService } from './../../services/authentication/authentication.service';
-// import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, OnInit, Output } from '@angular/core';
+import { AuthenticationService } from './../../services/authentication/authentication.service';
+@Component({
+  selector: 'app-authentication',
+  templateUrl: './authentication.component.html',
+  styleUrls: ['./authentication.component.css']
+})
+export class AuthenticationComponent implements OnInit {
 
-// @Component({
-//   selector: 'app-authentication',
-//   templateUrl: './authentication.component.html',
-//   styleUrls: ['./authentication.component.css']
-// })
-// export class AuthenticationComponent implements OnInit {
+  email: string = '';
+  password: string = '';
+  errorMessage: boolean = true;
 
-//   email!: string;
-//   password!: string;
+  constructor(
+    private authenticationService : AuthenticationService,
+    private router : Router
+  ) { }
 
-//   constructor(
-//     private authenticationService : AuthenticationService
-//   ) {}
-
-//   ngOnInit(): void {}
-
-//   signUp() {
-//     this.authenticationService.signUp(this.email, this.password);
-//     this.email = '';
-//     this.password = '';
-//   }
+  ngOnInit(): void {}
   
-//   signIn() {
-//     this.authenticationService.signIn(this.email, this.password);
-//     this.email = '';
-//     this.password = '';
-//   }
+  async signIn() {
+    await this.authenticationService.signIn(this.email, this.password).then(output => {
+        this.errorMessage = output
+        if(this.errorMessage == true) {
+            this.router.navigate(['']);
+        }
+    });
+    this.email = '';
+    this.password = '';
+  }
   
-//   signOut() {
-//     this.authenticationService.signOut();
-//   }
+  signOut() {
+    this.authenticationService.signOut();
+  }
 
-// }
+}

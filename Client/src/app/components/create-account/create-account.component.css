@@ -11,14 +11,13 @@
 }
 
 .title {
-  margin-top: 25px;
+  margin-top: 23px;
   font-weight: 600;
   font-size: 35px;
 }
 
 .subtitle {
   margin-top: -20px;
-  margin-bottom: -5px;
   font-weight: 500;
   font-size: 15px;
 }
@@ -49,16 +48,9 @@ input:focus {
   border: none;
 }
 
-.create {
-  color: rgb(164, 164, 164);
-  margin-top: 10px;
-  margin-left: 43px;
-  font-size: 11px;
-}
-
 button {
   display: block;
   width: 150px;
-  margin: 35px auto 0px auto;
+  margin: 58px auto 0px auto;
   background-color: #5a847126;
 }

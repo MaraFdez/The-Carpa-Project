@@ -1,4 +1,3 @@
-import { AngularFireStorage } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 import { WarehouseService } from 'src/app/services/warehouse/warehouse.service';
 import { Component, OnInit } from '@angular/core';
@@ -20,15 +19,12 @@ export class UploadFormComponent implements OnInit {
   currentFileUpload?: FileUpload;
   currentFile: File | null = null;
 
-  imageUrl : string = '';
-
   catalogElement : IFormElement = this.newCatalogElement();
 
   constructor(
     private uploadService: FileUploadService,
-    private storage : AngularFireStorage,
     private warehouseService : WarehouseService,
-    private router : Router,
+    private router : Router
     ) { }
 
   ngOnInit(): void {}

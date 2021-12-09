@@ -1,4 +1,5 @@
-//import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { CheckoutFailureComponent } from './components/checkout-failure/checkout-failure.component';
 import { CheckoutSuccessComponent } from './components/checkout-success/checkout-success.component';
 import { NgModule } from '@angular/core';
@@ -11,7 +12,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  //{path: 'authorize', component: AuthenticationComponent},
+  {path: 'authorize/sign-in', component: AuthenticationComponent},
+  {path: 'authorize/sign-up', component: CreateAccountComponent},
   {path: 'upload', component: UploadFormComponent},
   {path: 'warehouse', component: WarehouseComponent},
   {path: 'warehouse/project/:id', component: WarehouseDetailComponent},

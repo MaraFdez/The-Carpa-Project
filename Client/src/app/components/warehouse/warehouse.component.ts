@@ -30,7 +30,7 @@ export class WarehouseComponent implements OnInit {
   }
 
   nextPage():void{
-    if(this.page <= this.catalogElements.length/12){
+    if(this.page < this.catalogElements.length/12){
       this.page = this.page +1;
     }
   }

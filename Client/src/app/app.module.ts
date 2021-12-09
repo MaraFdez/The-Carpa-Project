@@ -19,10 +19,12 @@ import { WarehouseComponent } from './components/warehouse/warehouse.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { AuthenticationComponent } from './components/authentication/authentication.component';
 import { WarehouseDetailComponent } from './components/warehouse-detail/warehouse-detail.component';
 import { CheckoutSuccessComponent } from './components/checkout-success/checkout-success.component';
 import { CheckoutFailureComponent } from './components/checkout-failure/checkout-failure.component';
 import { FormsModule } from '@angular/forms';
+import { CreateAccountComponent } from './components/create-account/create-account.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +38,9 @@ import { FormsModule } from '@angular/forms';
     CheckoutComponent,
     WarehouseDetailComponent,
     CheckoutSuccessComponent,
-    CheckoutFailureComponent
+    CheckoutFailureComponent,
+    AuthenticationComponent,
+    CreateAccountComponent
   ],
   imports: [
     BrowserModule,
