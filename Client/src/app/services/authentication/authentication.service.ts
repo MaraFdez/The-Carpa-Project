@@ -44,7 +44,6 @@ import { User } from 'src/app/interfaces/user';
                 uid: '',
                 email: '',
                 displayName: '',
-                photoURL: '',
                 emailVerified: false,
             }
             localStorage.setItem('user', JSON.stringify(userData));
@@ -117,7 +116,6 @@ import { User } from 'src/app/interfaces/user';
             uid: user.uid,
             email: user.email,
             displayName: user.displayName,
-            photoURL: user.photoURL,
             emailVerified: user.emailVerified,
         }
         return userRef.set(userData, {

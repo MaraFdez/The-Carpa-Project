@@ -16,7 +16,10 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    private String UID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String uid;
 
     private String username;
 
@@ -28,9 +31,11 @@ public class User {
 
     //private int designsAmount;
 
-    public User(String username, String aboutMe) {
-        setUsername(username);
-        setAboutMe(aboutMe);
+    public User(String uid, String username, String profileImage, String aboutMe) {
+        this.uid = uid;
+        this.username = username;
+        this.profileImage = profileImage;
+        this.aboutMe = aboutMe;
     }
 
 }

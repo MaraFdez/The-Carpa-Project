@@ -7,15 +7,15 @@ import com.ironhack.finalProject.userService.service.interfaces.IUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
-@RequestMapping(value = "/user", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+@CrossOrigin(origins = "*")
+@RequestMapping(value = "/user")
 public class UserController {
 
     private final UserRepository userRepository;
@@ -43,7 +43,7 @@ public class UserController {
         }
     }
 
-    @GetMapping("/{username}")
+    @GetMapping("/username/{username}")
     @ResponseStatus(HttpStatus.OK)
     public User getUserByUsername(@PathVariable("username") String username) {
         Optional<User> user = userRepository.findByUsername(username);
@@ -54,12 +54,27 @@ public class UserController {
         }
     }
 
-    @PatchMapping("/{username}")
-    @ResponseStatus(HttpStatus.ACCEPTED)
-    public void updateAboutMe(@PathVariable("username") String username, @RequestBody String aboutMe) {
-        userService.editAboutMe(username, aboutMe);
+    @GetMapping("/uid/{uid}")
+    @ResponseStatus(HttpStatus.OK)
+    public User getUserByUid(@PathVariable("uid") String uid) {
+        Optional<User> user = userRepository.findByUid(uid);
+        if(user.isPresent()) {
+            return user.get();
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no user associated with this uid.");
+        }
     }
 
+    @PatchMapping("/{uid}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void updateAboutMe(@PathVariable("uid") String uid, @RequestBody UserDTO userDTO) {
+        if(userDTO.getProfileImage() != null && userDTO.getProfileImage() != ""){
+            userService.editProfilePicture(uid, userDTO.getProfileImage());
+        }
+        if(userDTO.getAboutMe() != null && userDTO.getAboutMe() != ""){
+            userService.editAboutMe(uid, userDTO.getAboutMe());
+        }
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)

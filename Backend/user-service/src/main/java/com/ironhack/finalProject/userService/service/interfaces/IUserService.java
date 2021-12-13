@@ -9,6 +9,7 @@ import java.io.IOException;
 public interface IUserService {
 
     User createUser(UserDTO userDTO);
-    void editAboutMe(String username, String aboutMe);
+    void editProfilePicture(String uid, String profilePicture);
+    void editAboutMe(String uid, String aboutMe);
 
 }

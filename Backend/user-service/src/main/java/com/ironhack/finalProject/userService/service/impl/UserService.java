@@ -19,19 +19,30 @@ public class UserService implements IUserService {
         this.userRepository = userRepository;
     }
 
-    public void editAboutMe(String username, String aboutMe) {
-        Optional<User> existsUser = userRepository.findByUsername(username);
+    public void editAboutMe(String uid, String aboutMe) {
+        Optional<User> existsUser = userRepository.findByUid(uid);
         if(existsUser.isPresent()){
             User user = existsUser.get();
             user.setAboutMe(aboutMe);
             userRepository.save(user);
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no user associated with this username.");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no user associated with this uid.");
+        }
+    }
+
+    public void editProfilePicture(String uid, String profilePicture) {
+        Optional<User> existsUser = userRepository.findByUid(uid);
+        if(existsUser.isPresent()){
+            User user = existsUser.get();
+            user.setProfileImage(profilePicture);
+            userRepository.save(user);
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no user associated with this uid.");
         }
     }
 
     public User createUser(UserDTO userDTO) {
-        User user = new User(userDTO.getUsername(), userDTO.getPassword(), userDTO.getProfileImage(), userDTO.getAboutMe());
+        User user = new User(userDTO.getUid(), userDTO.getUsername(), userDTO.getProfileImage(), userDTO.getAboutMe());
         return userRepository.save(user);
     }
 
