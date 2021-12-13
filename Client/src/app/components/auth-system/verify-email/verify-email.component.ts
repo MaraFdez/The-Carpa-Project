@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerifyEmailComponent implements OnInit {
 
-  constructor(private authenticationService : AuthenticationService) { }
+  constructor(
+    private authenticationService : AuthenticationService
+  ) { }
 
   ngOnInit(): void {
   }

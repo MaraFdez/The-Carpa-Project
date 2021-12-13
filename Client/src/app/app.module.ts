@@ -20,15 +20,16 @@ import { WarehouseComponent } from './components/warehouse/warehouse.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { CheckoutComponent } from './components/checkout/checkout.component';
-import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { AuthenticationComponent } from './components/auth-system/authentication/authentication.component';
 import { WarehouseDetailComponent } from './components/warehouse-detail/warehouse-detail.component';
 import { CheckoutSuccessComponent } from './components/checkout-success/checkout-success.component';
 import { CheckoutFailureComponent } from './components/checkout-failure/checkout-failure.component';
 import { FormsModule } from '@angular/forms';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { VerifyEmailComponent } from './components/auth-system/verify-email/verify-email.component';
+import { CreateAccountComponent } from './components/auth-system/create-account/create-account.component';
+import { ForgotPasswordComponent } from './components/auth-system/forgot-password/forgot-password.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
     AuthenticationComponent,
     CreateAccountComponent,
     UserProfileComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,

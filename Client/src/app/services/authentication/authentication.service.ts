@@ -40,7 +40,15 @@ import { User } from 'src/app/interfaces/user';
             localStorage.setItem('user', JSON.stringify(this.userData));
             JSON.parse(localStorage.getItem('user')!);
           } else {
-            this.signOut();
+            const userData: User = {
+                uid: '',
+                email: '',
+                displayName: '',
+                photoURL: '',
+                emailVerified: false,
+            }
+            localStorage.setItem('user', JSON.stringify(userData));
+            JSON.parse(localStorage.getItem('user')!);
           }
       })
     }
@@ -118,16 +126,9 @@ import { User } from 'src/app/interfaces/user';
     }
 
     signOut() : Promise<void> {
-        const userData: User = {
-            uid: '',
-            email: '',
-            displayName: '',
-            photoURL: '',
-            emailVerified: false,
-        }
         this.authenticationState.next(false);
         return this.angularFireAuth.signOut().then(() => {
-            localStorage.setItem('user', JSON.stringify(userData));
+            localStorage.removeItem('user');
         });
     }
 

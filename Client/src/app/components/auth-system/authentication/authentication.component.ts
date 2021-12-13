@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, Output } from '@angular/core';
-import { AuthenticationService } from './../../services/authentication/authentication.service';
+import { AuthenticationService } from '../../../services/authentication/authentication.service';
 @Component({
   selector: 'app-authentication',
   templateUrl: './authentication.component.html',
@@ -24,6 +24,7 @@ export class AuthenticationComponent implements OnInit {
         this.errorMessage = output
         if(this.errorMessage == true) {
             this.router.navigate(['']);
+            window.scrollTo(0, 0);
         }
     });
     this.email = '';

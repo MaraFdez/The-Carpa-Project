@@ -26,6 +26,7 @@ export class CreateAccountComponent implements OnInit {
       this.errorMessage = output;
       if(output == true) {
           this.router.navigate(['/authorize/sign-up/verify']);
+          window.scrollTo(0, 0);
       }
     });
     this.email = '';

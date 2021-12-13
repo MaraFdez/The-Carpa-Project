@@ -1,8 +1,9 @@
-import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { VerifyEmailComponent } from './components/auth-system/verify-email/verify-email.component';
+import { CreateAccountComponent } from './components/auth-system/create-account/create-account.component';
+import { ForgotPasswordComponent } from './components/auth-system/forgot-password/forgot-password.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './guards/auth-guard.service';
-import { CreateAccountComponent } from './components/create-account/create-account.component';
-import { AuthenticationComponent } from './components/authentication/authentication.component';
+import { AuthenticationComponent } from './components/auth-system/authentication/authentication.component';
 import { CheckoutFailureComponent } from './components/checkout-failure/checkout-failure.component';
 import { CheckoutSuccessComponent } from './components/checkout-success/checkout-success.component';
 import { NgModule } from '@angular/core';
@@ -18,8 +19,9 @@ const routes: Routes = [
   {path: 'authorize/sign-in', component: AuthenticationComponent},
   {path: 'authorize/sign-up', component: CreateAccountComponent},
   {path: 'authorize/sign-up/verify', component: VerifyEmailComponent},
+  {path: 'authorize/new-password', component: ForgotPasswordComponent},
   {path: 'myProfile/user/:id', component: UserProfileComponent, canActivate: [AuthGuard]},
-  {path: 'upload', component: UploadFormComponent},
+  {path: 'upload', component: UploadFormComponent, canActivate: [AuthGuard]},
   {path: 'warehouse', component: WarehouseComponent},
   {path: 'warehouse/project/:id', component: WarehouseDetailComponent},
   {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
