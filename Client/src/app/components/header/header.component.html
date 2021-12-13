@@ -1,12 +1,15 @@
 <section class="hero">
     <div id="navbarMenuHeroA" class="navbar-menu">
         <div class="navbar-end">
-          <a class="navbar-item">
-            My Account
-          </a>
-          <a class="navbar-item" [routerLink]="['/authorize/sign-in']">
-            Sign in
-          </a>
+            <a class="navbar-item" [routerLink]="['/myProfile/user/:id']" [ngClass]="{hidden: !isUserLoggedIn()}">
+              My Account
+            </a>
+            <a class="navbar-item" [routerLink]="['/authorize/sign-in']" [ngClass]="{hidden: isUserLoggedIn()}">
+              Sign in
+            </a>
+            <a class="navbar-item" (click)="signOut()" [ngClass]="{hidden: !isUserLoggedIn()}">
+              Sign out
+            </a>
         </div>
     </div>
     

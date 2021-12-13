@@ -11,6 +11,7 @@ export class CreateAccountComponent implements OnInit {
 
   email: string = '';
   password: string = '';
+  errorMessage : boolean = true;
   
   constructor(
     private authenticationService : AuthenticationService,
@@ -22,8 +23,9 @@ export class CreateAccountComponent implements OnInit {
 
   async signUp() {
     await this.authenticationService.signUp(this.email, this.password).then(output => {
+      this.errorMessage = output;
       if(output == true) {
-          this.router.navigate(['']);
+          this.router.navigate(['/authorize/sign-up/verify']);
       }
     });
     this.email = '';

@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-content login">
+        <p class="title">Thank you for registering</p>
+    </div>
+  
+    <div class="form-group" *ngIf="setUser() as user">
+        <p class="text-center">We have sent a confirmation email to <strong>{{user.email}}</strong>.</p>
+    </div>
+        
+    <p class="account">Is it taking too long? <a (click)="sendVerificationEmail()">Resend verification email.</a></p>
+    <p class="account">Go back to <a [routerLink]="['/authorize/sign-in']">Sign in.</a></p>
+  
+</div>

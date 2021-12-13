@@ -5,6 +5,7 @@
     </div>
 
     <form (ngSubmit)="signUp()">
+        <p class="error" [hidden]="errorMessage != false">This email address is already in use by another account.</p>
         <div class="form-group">
             <label for="email" class="column is-narrow">Email</label>
             <input type="email" class="input is-small" id="email" required [(ngModel)]="email" name="email"/>
@@ -15,8 +16,8 @@
                 <div *ngIf="email.errors?.['email']">
                     Email not valid.
                 </div>
-            </div>-->
-        </div> 
+            </div>  -->
+        </div>
         <div class="form-group">
             <label for="password" class="column is-narrow">Password</label>
             <input type="password" class="input is-small" id="password" required minlength="6" [(ngModel)]="password" name="password"/>
@@ -29,6 +30,7 @@
                 </div>
             </div> -->
         </div>
+        <p class="account">Already have an account? <a [routerLink]="['/authorize/sign-in']">Log in.</a></p>
         <button type="submit" class="button is-small">Sign up</button>
     </form>
 

@@ -1,6 +1,6 @@
 .card {
   width: 450px;
-  height: 400px;
+  height: 415px;
   align-content: center;
   margin: 45px auto 50px auto;
   font-family: "Montserrat", sans-serif;
@@ -48,9 +48,22 @@ input:focus {
   border: none;
 }
 
+.account {
+  color: rgb(164, 164, 164);
+  margin: 10px 0px 2px 43px;
+  font-size: 11px;
+}
+
+.error {
+  margin-left: 43px;
+  color: red;
+  font-weight: 600;
+  font-size: 12px;
+}
+
 button {
   display: block;
   width: 150px;
-  margin: 58px auto 0px auto;
+  margin: 50px auto 0px auto;
   background-color: #5a847126;
 }

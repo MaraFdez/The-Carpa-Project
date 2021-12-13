@@ -14,8 +14,13 @@
             <label for="password" class="column is-narrow">Password</label>
             <input type="password" class="input is-small" id="password" required [(ngModel)]="password" name="password"/>
         </div>
-        <p class="create">No account? <a [routerLink]="['/authorize/sign-up']">Create one!</a></p>
+        <p class="account">No account? <a [routerLink]="['/authorize/sign-up']">Create one!</a></p>
+        <a class="password" [routerLink]="['/authorize/sign-up']">Forgot Password?</a>
         <button type="submit" class="button is-small">Sign in</button>
     </form>
-
+    <p class="google-text"> Or </p>
+    <button type="button" class="google-button" (click)="googleAuth()">
+        <img class="google-icon" src="../../../assets/img/Google__Logo.png">
+        <p class="google-text">Log in with Google</p>
+    </button>
 </div>

@@ -1,0 +1,41 @@
+.card {
+  width: 450px;
+  height: 415px;
+  align-content: center;
+  margin: 45px auto 50px auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.card-content {
+  margin: 10px 20px -8px;
+}
+
+.title {
+  margin-top: 23px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin-top: -20px;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.form-group {
+  font-family: monospace;
+  font-size: 12.2px;
+  width: 360px;
+  align-content: center;
+  margin: 55px auto 70px auto;
+}
+
+.text {
+  font-size: 12.2px;
+  margin-left: 45px;
+}
+
+.account {
+  color: rgb(164, 164, 164);
+  margin: 10px 0px 2px 43px;
+  font-size: 11px;
+}

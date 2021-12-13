@@ -1,3 +1,4 @@
+import { AuthenticationService } from './services/authentication/authentication.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -25,6 +26,9 @@ import { CheckoutSuccessComponent } from './components/checkout-success/checkout
 import { CheckoutFailureComponent } from './components/checkout-failure/checkout-failure.component';
 import { FormsModule } from '@angular/forms';
 import { CreateAccountComponent } from './components/create-account/create-account.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +44,9 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     CheckoutSuccessComponent,
     CheckoutFailureComponent,
     AuthenticationComponent,
-    CreateAccountComponent
+    CreateAccountComponent,
+    UserProfileComponent,
+    VerifyEmailComponent
   ],
   imports: [
     BrowserModule,
@@ -50,10 +56,11 @@ import { CreateAccountComponent } from './components/create-account/create-accou
     NgxPaginationModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule
   ],
-  providers: [],
+  providers: [AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

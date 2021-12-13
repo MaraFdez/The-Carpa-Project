@@ -16,29 +16,21 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String UID;
 
     private String username;
 
-    private String password;
-
+    @Column(name = "profile_image")
     private String profileImage;
 
+    @Column(name = "about_me")
     private String aboutMe;
 
     //private int designsAmount;
 
-    public User(String username, String password, String aboutMe) {
+    public User(String username, String aboutMe) {
         setUsername(username);
-        setPassword(password);
         setAboutMe(aboutMe);
     }
 
-    public User(String username, String password, String profileImage, String aboutMe) {
-        setUsername(username);
-        setPassword(password);
-        setProfileImage(profileImage);
-        setAboutMe(aboutMe);
-    }
 }

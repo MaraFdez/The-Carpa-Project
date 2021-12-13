@@ -1,6 +1,6 @@
 .card {
   width: 450px;
-  height: 400px;
+  height: 500px;
   align-content: center;
   margin: 45px auto 50px auto;
   font-family: "Montserrat", sans-serif;
@@ -11,7 +11,7 @@
 }
 
 .title {
-  margin-top: 25px;
+  margin-top: 20px;
   font-weight: 600;
   font-size: 35px;
 }
@@ -49,9 +49,13 @@ input:focus {
   border: none;
 }
 
-.create {
+.account {
   color: rgb(164, 164, 164);
-  margin-top: 10px;
+  margin: 10px 0px 2px 43px;
+  font-size: 11px;
+}
+
+.password {
   margin-left: 43px;
   font-size: 11px;
 }
@@ -59,6 +63,33 @@ input:focus {
 button {
   display: block;
   width: 150px;
-  margin: 35px auto 0px auto;
+  margin: 32px auto 0px auto;
   background-color: #5a847126;
+}
+
+.google-button {
+  display: flex;
+  align-content: center;
+  margin: 15px auto 0px auto;
+  background: white;
+  width: 165px;
+  border-radius: 5px;
+  border: thin solid rgba(136, 136, 136, 0.279);
+  white-space: nowrap;
+}
+
+.google-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 23px;
+  height: 23px;
+  margin: 9px 10px 9px 5px;
+}
+
+.google-text {
+  display: flex;
+  margin-top: 11px;
+  justify-content: center;
+  font-size: 13px;
+  color: rgb(98, 98, 98);
 }

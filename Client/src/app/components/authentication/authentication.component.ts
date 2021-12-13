@@ -29,9 +29,9 @@ export class AuthenticationComponent implements OnInit {
     this.email = '';
     this.password = '';
   }
-  
-  signOut() {
-    this.authenticationService.signOut();
-  }
 
+  googleAuth() {
+      this.authenticationService.googleAuth();
+  }
+  
 }
