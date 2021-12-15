@@ -2,6 +2,10 @@
 
 _Angular and Spring Boot App / Ironhack 2021_
 
+<div align="center">
+  <img src="./Images/Logo.png" alt="CarpaLogo" width="200" height="100">
+</div align="center">
+
 ## Instalation
 
 1. Download this project from the repository.
