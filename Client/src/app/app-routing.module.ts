@@ -1,8 +1,9 @@
-import { UserFormComponent } from './components/user-form/user-form.component';
+import { EditUserFormComponent } from './components/my-profile/edit-user-form/edit-user-form.component';
+import { UserFormComponent } from './components/my-profile/user-form/user-form.component';
 import { VerifyEmailComponent } from './components/auth-system/verify-email/verify-email.component';
 import { CreateAccountComponent } from './components/auth-system/create-account/create-account.component';
 import { ForgotPasswordComponent } from './components/auth-system/forgot-password/forgot-password.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserProfileComponent } from './components/my-profile/user-profile/user-profile.component';
 import { AuthGuard } from './guards/auth-guard.service';
 import { AuthenticationComponent } from './components/auth-system/authentication/authentication.component';
 import { CheckoutFailureComponent } from './components/checkout-failure/checkout-failure.component';
@@ -21,8 +22,9 @@ const routes: Routes = [
   {path: 'authorize/sign-up', component: CreateAccountComponent},
   {path: 'authorize/sign-up/verify', component: VerifyEmailComponent},
   {path: 'authorize/new-password', component: ForgotPasswordComponent},
-  {path: 'myProfile/user/:id', component: UserFormComponent, canActivate: [AuthGuard]},
-  //{path: 'myProfile/user/:id', component: UserProfileComponent, canActivate: [AuthGuard]},
+  {path: 'myProfile/new-user/form', component: UserFormComponent, canActivate: [AuthGuard]},
+  {path: 'myProfile/edit-user/form', component: EditUserFormComponent, canActivate: [AuthGuard]},
+  {path: 'myProfile/user/:username', component: UserProfileComponent, canActivate: [AuthGuard]},
   {path: 'upload', component: UploadFormComponent, canActivate: [AuthGuard]},
   {path: 'warehouse', component: WarehouseComponent},
   {path: 'warehouse/project/:id', component: WarehouseDetailComponent},

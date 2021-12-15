@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public interface IUserService {
 
+    User getUserByUid(String uid);
+    User getUserByUsername(String username);
     User createUser(UserDTO userDTO);
     void editProfilePicture(String uid, String profilePicture);
     void editAboutMe(String uid, String aboutMe);

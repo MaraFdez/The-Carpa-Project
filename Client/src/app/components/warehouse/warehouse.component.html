@@ -14,7 +14,8 @@
             <a [routerLink]="['/warehouse/project/', catalogElement.id]">
                 <header>
                     <p class="card-header-title">
-                        {{catalogElement.projectName | uppercase}} &nbsp; <span class="username">-&nbsp;&nbsp;{{catalogElement.username}}</span>
+                        {{catalogElement.projectName | uppercase}} &nbsp; 
+                        <a class="username" [routerLink]="['/myProfile/user/', catalogElement.username]">-&nbsp;&nbsp;{{catalogElement.username}}</a>
                     </p>
                 </header>
                 

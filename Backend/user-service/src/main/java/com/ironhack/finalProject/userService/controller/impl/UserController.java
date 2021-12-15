@@ -5,7 +5,6 @@ import com.ironhack.finalProject.userService.dao.User;
 import com.ironhack.finalProject.userService.repository.UserRepository;
 import com.ironhack.finalProject.userService.service.interfaces.IUserService;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -46,23 +45,13 @@ public class UserController {
     @GetMapping("/username/{username}")
     @ResponseStatus(HttpStatus.OK)
     public User getUserByUsername(@PathVariable("username") String username) {
-        Optional<User> user = userRepository.findByUsername(username);
-        if(user.isPresent()) {
-            return user.get();
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no user associated with this username.");
-        }
+        return userService.getUserByUsername(username);
     }
 
     @GetMapping("/uid/{uid}")
     @ResponseStatus(HttpStatus.OK)
     public User getUserByUid(@PathVariable("uid") String uid) {
-        Optional<User> user = userRepository.findByUid(uid);
-        if(user.isPresent()) {
-            return user.get();
-        } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "There is no user associated with this uid.");
-        }
+        return userService.getUserByUid(uid);
     }
 
     @PatchMapping("/{uid}")

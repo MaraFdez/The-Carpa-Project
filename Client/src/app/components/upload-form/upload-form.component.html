@@ -8,7 +8,7 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label for="username" class="column is-narrow">Username</label>
-            <input type="text" class="input is-small" id="username" required [(ngModel)]="catalogElement.username" name="username"/>
+            <input type="text" class="input is-small" readonly placeholder={{currentUser.username}} id="username" name="username"/>
         </div>
         <div class="form-group">
             <label for="projectName" class="column is-narrow">Project name</label>

@@ -1,6 +1,9 @@
+import firebase from 'firebase/app';
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FileUpload } from 'src/app/model/file-upload.model';
-import { UserService } from './../../services/user/user.service';
+import { UserService } from '../../../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 import { IUserData } from 'src/app/interfaces/user-data';
 
@@ -17,7 +20,10 @@ export class UserFormComponent implements OnInit {
 
   constructor(
     private userService : UserService,
-    public angularFireAuth: AngularFireAuth
+    private router : Router,
+    private authenticationService : AuthenticationService,
+    public angularFireAuth: AngularFireAuth,
+    private route : ActivatedRoute
   ) { }
 
   ngOnInit(): void {
@@ -25,15 +31,18 @@ export class UserFormComponent implements OnInit {
 
   private newUserData() : IUserData {
     return  {
+      id : 0,
       uid : "",
       username : "",
       profileImage: "",
-      aboutMe : ""
+      aboutMe : "",
+      uploadedProjects: 0
     }
   }
 
-  onSubmit(): void {    
+  onSubmit() {    
     this.save();
+    this.goToHomePage();
   }
  
   save() {
@@ -42,10 +51,19 @@ export class UserFormComponent implements OnInit {
     this.angularFireAuth.authState.subscribe(user => {
         this.newUser.uid = user!.uid;
         this.userService.saveUserData(this.newUser).subscribe(data => {
-            console.log(data);
-            this.newUser= this.newUserData();
+            console.log(data);  
+            const user = firebase.auth().currentUser;
+            user!.updateProfile({
+              displayName: data.username
+            })
         });
-    });
+    });            
+
+  }
+
+  goToHomePage() {
+    this.router.navigate(['']);
+    window.scrollTo(0, 0);
   }
 
   selectFileImage(event: any): void {

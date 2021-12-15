@@ -1,3 +1,5 @@
+import { IUserData } from 'src/app/interfaces/user-data';
+import { UserService } from './../../services/user/user.service';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,8 +11,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  currentUser! : IUserData;
+
   constructor(
     private authenticationService : AuthenticationService,
+    private userService : UserService,
     private route: ActivatedRoute, 
     private router: Router
   ) { 
@@ -18,6 +23,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authenticationService.restoreSession();
+    this.userService.getCurrentUser();
+    this.currentUser = JSON.parse(localStorage.getItem("userDetails")!);
   }
 
   isUserLoggedIn() : boolean {
@@ -27,7 +35,26 @@ export class HeaderComponent implements OnInit {
   signOut() {
     this.authenticationService.signOut();
     this.isUserLoggedIn();
-    window.location.reload();
+  }
+
+  myAccountRouting() {
+    if(this.currentUser.username === "" || this.currentUser.username === null) {
+      this.router.navigate(['/myProfile/new-user/form']);
+      window.scrollTo(0, 0);
+    } else {
+      this.router.navigate(['/myProfile/user/' + this.currentUser.username]);
+      window.scrollTo(0, 0);
+    }
+  }
+
+  uploadRouting() {
+    if(this.currentUser.username === "" || this.currentUser.username === null) {
+      this.router.navigate(['/myProfile/new-user/form']);
+      window.scrollTo(0, 0);
+    } else {
+      this.router.navigate(['/upload']);
+      window.scrollTo(0, 0);
+    }
   }
 
   isHome() : boolean {

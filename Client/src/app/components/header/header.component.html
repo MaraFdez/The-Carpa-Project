@@ -1,7 +1,7 @@
 <section class="hero">
     <div id="navbarMenuHeroA" class="navbar-menu">
         <div class="navbar-end">
-            <a class="navbar-item" [routerLink]="['/myProfile/user/:id']" [ngClass]="{hidden: !isUserLoggedIn()}">
+            <a class="navbar-item" (click)="myAccountRouting()" [ngClass]="{hidden: !isUserLoggedIn()}">
               My Account
             </a>
             <a class="navbar-item" [routerLink]="['/authorize/sign-in']" [ngClass]="{hidden: isUserLoggedIn()}">
@@ -25,7 +25,7 @@
         <div class="container">
             <ul>
             <li [class.is-active]="isHome()==true"><a [routerLink]="['']">Home</a></li>
-            <li [class.is-active]="isUpload()==true"><a [routerLink]="['/upload']">Upload</a></li>
+            <li [class.is-active]="isUpload()==true"><a (click)="uploadRouting()">Upload</a></li>
             <li [class.is-active]="isWarehouse()==true"><a [routerLink]="['/warehouse']">Warehouse</a></li>
             </ul>
         </div>

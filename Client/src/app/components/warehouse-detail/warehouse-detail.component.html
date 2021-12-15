@@ -1,7 +1,9 @@
 <button class="back" type="button" [routerLink]="['/warehouse']">BACK</button>
 
 <div class="card">
-
+    <span class="group" *ngIf="setUser() as user">
+        <button type="button" class="delete" [ngClass]="{hidden: user.uid != userData.uid}" (click)="deleteItem(selectedCatalogElement.id)">Delete</button>
+    </span>
     <div class="card-image" *ngIf="this.selectedCatalogElement.image == null || this.selectedCatalogElement.image == ''">
         <img src="../../../assets/img/ultimakerlinea.png" alt="Model image" width="200">
     </div>
@@ -11,10 +13,14 @@
 
     <div class="central">
         <span class="header">
-            <h2 class="projectName">{{ selectedCatalogElement.projectName | uppercase }}</h2>
-            <button type="button">{{selectedCatalogElement.price}} €</button>
+            <h2 class="projectName">
+                {{ selectedCatalogElement.projectName | uppercase }}
+            </h2>
+            <button type="button" class="price">{{selectedCatalogElement.price}} €</button>
         </span>
-        <p class="subtitle">A creation by {{selectedCatalogElement.username}}</p><br/>
+        <p class="subtitle">A creation by 
+            <a [routerLink]="['/myProfile/user/', selectedCatalogElement.username]">{{selectedCatalogElement.username}}</a>
+        </p><br/>
         <p class="info">{{selectedCatalogElement.description}}</p>
         <p class="date">Published on {{selectedCatalogElement.publicationDate}}</p>
     </div>

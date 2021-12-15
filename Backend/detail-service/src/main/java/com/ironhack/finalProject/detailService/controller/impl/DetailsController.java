@@ -38,6 +38,12 @@ public class DetailsController {
         return detailsService.getDetails(id);
     }
 
+    @GetMapping("/uploadedProjects/{username}")
+    @ResponseStatus(HttpStatus.OK)
+    public int getAmountOfUploadedProjects(@PathVariable("username") String username) {
+        return detailsService.getAmountOfUploadedProjects(username);
+    }
+
     @PatchMapping("/{id}")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void uploadDetails(@PathVariable("id") Long id, @RequestBody UpgradableDetailsDTO upgradableDetailsDTO) {

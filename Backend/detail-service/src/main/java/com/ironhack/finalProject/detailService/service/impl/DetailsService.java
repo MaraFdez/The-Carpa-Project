@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -28,6 +29,11 @@ public class DetailsService implements IDetailsService {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "There are no details associated with this id");
         }
     }
+
+    public int getAmountOfUploadedProjects(String username) {
+        List<Details> detailsArray = detailsRepository.findByUsername(username);
+        return detailsArray.size();
+    };
 
     public Details storeDetails(DetailsDTO detailsDTO) {
         Details details =

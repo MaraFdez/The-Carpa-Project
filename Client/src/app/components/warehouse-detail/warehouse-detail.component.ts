@@ -1,3 +1,6 @@
+import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
+import { IUserData } from 'src/app/interfaces/user-data';
+import { UserService } from './../../services/user/user.service';
 import { ICatalogElement } from 'src/app/interfaces/catalog-element';
 import { WarehouseService } from 'src/app/services/warehouse/warehouse.service';
 import { Component, OnInit } from '@angular/core';
@@ -13,12 +16,15 @@ export class WarehouseDetailComponent implements OnInit {
 
   selectedCatalogElement! : CatalogElement;
   catalogElementId : number = 0;
+  userData! : IUserData;
 
   constructor(
     private warehouseService: WarehouseService, 
     private route: ActivatedRoute, 
-    private router: Router
-    ) { }
+    private router : Router,
+    private userService : UserService,
+    private authenticationService : AuthenticationService
+  ) { }
 
   ngOnInit(): void {
     this.getElement();
@@ -38,9 +44,39 @@ export class WarehouseDetailComponent implements OnInit {
           result.publicationDate,
           result.data
         )
+        this.getUserDetails(result.username);
         this.selectedCatalogElement = catalogElement;
       });
 
     }
 
+    getUserDetails(username : string) : void {
+      this.userService.getUserDataByUsername(username).subscribe(data => {
+        let userDetails : IUserData = {
+          id : data.id,
+          uid : data.uid,
+          username : data.username,
+          profileImage : data.profileImage,
+          aboutMe : data.aboutMe,
+          uploadedProjects : data.uploadedProjects
+        }
+        this.userData = userDetails;
+      });
+    }
+
+    setUser() {
+      return this.authenticationService.userData;
+    }
+
+    deleteItem(id : number) {
+      if (confirm('Are you sure you want to remove this design permanently? :_(')) {
+        this.warehouseService.deleteCatalogElement(id).subscribe();
+        console.log('This design was deleted.');
+        this.router.navigate(['/warehouse']).then(() => {
+          window.location.reload();
+        });
+      } else {
+        console.log('This design was not deleted.');
+      }
+    }
 }

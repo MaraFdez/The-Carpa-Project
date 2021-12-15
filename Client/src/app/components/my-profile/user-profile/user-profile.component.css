@@ -1,0 +1,87 @@
+.back {
+  border: none;
+  background-color: rgb(62, 62, 62);
+  padding: 10px 10px 10px 10px;
+  margin: 10px 0px 10px 30px;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 11px;
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.card {
+  width: 450px;
+  align-content: center;
+  margin: -10px auto 50px auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.card-content {
+  margin: 10px 20px -8px;
+}
+
+.image {
+  display: flex;
+  height: 380px;
+  overflow: hidden;
+  align-content: center;
+  margin: 20px auto 0px auto;
+  text-align: center;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  margin-top: 20px;
+  margin-left: 5px;
+  font-weight: 600;
+  font-size: 35px;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+}
+
+hr {
+  margin-top: -10px;
+  color: #5a8471b3;
+}
+
+.projects {
+  width: 360px;
+  margin: -20px auto 0px 7.5px;
+  font-family: "Roboto";
+  font-weight: 600;
+  font-size: 12.5px;
+  color: #5a8471b3;
+}
+
+.text {
+  width: 360px;
+  margin: 30px auto 80px 5px;
+  font-family: monospace;
+  font-size: 12.5px;
+  color: #626262c6;
+  align-content: center;
+}
+
+.button {
+  display: flex;
+  width: 35px;
+  margin: 28px 8px 0px auto;
+  background-color: #5a847115;
+  text-align: left;
+  font-size: 9.8px;
+}
+
+a {
+  color: #5a8471b3;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+}

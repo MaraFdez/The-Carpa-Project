@@ -1,0 +1,17 @@
+<button class="back" type="button" (click)="goBack()">BACK</button>
+
+<div class="card">
+    <div class="card-content">
+        <div class="image">
+            <img src="{{userData.profileImage}}" alt="User image" width="350">    
+        </div>
+        <span class="group" *ngIf="setUser() as user">
+            <p class="title">{{userData.username}}</p>
+            <button type="button" class="button" [ngClass]="{hidden: user.uid != userData.uid}"><a [routerLink]="['/myProfile/edit-user/form']">EDIT</a></button>
+        </span>
+        <hr>
+        <p class="projects">{{userData.uploadedProjects}} designs</p>
+        <p class="text">{{userData.aboutMe}}</p>
+    </div>
+
+</div>

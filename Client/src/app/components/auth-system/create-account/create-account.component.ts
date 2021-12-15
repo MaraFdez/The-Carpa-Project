@@ -14,21 +14,14 @@ export class CreateAccountComponent implements OnInit {
   errorMessage : boolean = true;
   
   constructor(
-    private authenticationService : AuthenticationService,
-    private router : Router
+    private authenticationService : AuthenticationService
   ) { }
 
   ngOnInit(): void {
   }
 
-  async signUp() {
-    await this.authenticationService.signUp(this.email, this.password).then(output => {
-      this.errorMessage = output;
-      if(output == true) {
-          this.router.navigate(['/authorize/sign-up/verify']);
-          window.scrollTo(0, 0);
-      }
-    });
+  signUp() {
+    this.authenticationService.signUp(this.email, this.password);
     this.email = '';
     this.password = '';
   }

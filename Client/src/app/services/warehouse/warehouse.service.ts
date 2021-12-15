@@ -31,7 +31,7 @@ export class WarehouseService {
   }
 
   deleteCatalogElement(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+    return this.http.delete(`http://localhost:8083/catalog/${id}`, { responseType: 'text' });
   }
 
 }

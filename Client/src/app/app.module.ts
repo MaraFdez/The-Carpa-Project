@@ -23,12 +23,13 @@ import { WarehouseDetailComponent } from './components/warehouse-detail/warehous
 import { CheckoutSuccessComponent } from './components/checkout-success/checkout-success.component';
 import { CheckoutFailureComponent } from './components/checkout-failure/checkout-failure.component';
 import { FormsModule } from '@angular/forms';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { UserProfileComponent } from './components/my-profile/user-profile/user-profile.component';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { VerifyEmailComponent } from './components/auth-system/verify-email/verify-email.component';
 import { CreateAccountComponent } from './components/auth-system/create-account/create-account.component';
 import { ForgotPasswordComponent } from './components/auth-system/forgot-password/forgot-password.component';
-import { UserFormComponent } from './components/user-form/user-form.component';
+import { UserFormComponent } from './components/my-profile/user-form/user-form.component';
+import { EditUserFormComponent } from './components/my-profile/edit-user-form/edit-user-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     UserProfileComponent,
     VerifyEmailComponent,
     ForgotPasswordComponent,
-    UserFormComponent
+    UserFormComponent,
+    EditUserFormComponent
   ],
   imports: [
     BrowserModule,

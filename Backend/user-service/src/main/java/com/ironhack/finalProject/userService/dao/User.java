@@ -29,6 +29,9 @@ public class User {
     @Column(name = "about_me")
     private String aboutMe;
 
+    @Column(name = "uploaded_projects")
+    private int uploadedProjects;
+
     //private int designsAmount;
 
     public User(String uid, String username, String profileImage, String aboutMe) {

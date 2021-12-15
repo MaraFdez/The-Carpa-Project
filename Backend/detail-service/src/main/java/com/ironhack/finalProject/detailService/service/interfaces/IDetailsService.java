@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 public interface IDetailsService {
 
     Details getDetails(Long id);
+    int getAmountOfUploadedProjects(String username);
     Details storeDetails(DetailsDTO detailsDTO);
     void updateProjectName(Long id, String projectName);
     void updateDescription(Long id, String description);
