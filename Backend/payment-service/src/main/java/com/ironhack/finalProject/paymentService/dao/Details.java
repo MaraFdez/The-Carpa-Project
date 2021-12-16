@@ -19,6 +19,7 @@ public class Details {
     private String username;
     private String projectName;
     private String description;
+    private String image;
     private BigDecimal price;
     private LocalDate publicationDate;
     private Long fileId;

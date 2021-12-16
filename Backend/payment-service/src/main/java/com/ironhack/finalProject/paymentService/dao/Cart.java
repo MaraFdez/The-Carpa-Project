@@ -14,8 +14,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity
-@Table(name="cart")
+//@Entity
+//@Table(name="cart")
 public class Cart {
 
     @Id
@@ -25,8 +25,8 @@ public class Cart {
     @Column(name = "created_date")
     private Date createdDate;
 
-    @JsonIgnore
-    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
-    @JoinColumn(nullable = false, name = "user_id")
-    private User user;
+//    @JsonIgnore
+//    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
+//    @JoinColumn(nullable = false, name = "user_id")
+//    private User user;
 }

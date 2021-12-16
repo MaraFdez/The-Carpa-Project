@@ -1,4 +1,4 @@
-package com.ironhack.finalProject.paymentService.dto;
+package com.ironhack.finalProject.paymentService.controller.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

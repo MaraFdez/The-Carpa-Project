@@ -1,4 +1,4 @@
-package com.ironhack.finalProject.paymentService.dto;
+package com.ironhack.finalProject.paymentService.message;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,8 +10,6 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class StripeResponse {
-
-    private String sessionId;
-
+public class ResponseMessage {
+    private String message;
 }

@@ -1,7 +1,7 @@
 package com.ironhack.finalProject.paymentService.proxy;
 
 import com.ironhack.finalProject.paymentService.dao.Details;
-import com.ironhack.finalProject.paymentService.dto.DetailsDTO;
+import com.ironhack.finalProject.paymentService.controller.dto.DetailsDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
