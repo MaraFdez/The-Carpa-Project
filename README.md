@@ -25,3 +25,8 @@ _Angular and Spring Boot App / Ironhack 2021_
 5. Run the front-end : `ng serve -o`
 
 6. And the most important part... enjoy!
+
+## Use Case Diagram
+<div align="center">
+  <img src="./Images/Carpa-Use-Diagram.png" alt="CarpaLogo" width="800">
+</div align="center">
