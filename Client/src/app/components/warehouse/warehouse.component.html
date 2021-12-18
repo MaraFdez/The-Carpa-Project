@@ -35,7 +35,7 @@
             </a>
 
             <div class="download">
-                <a [routerLink]="['/checkout']">
+                <a [routerLink]="['/' + catalogElement.id + '/checkout']">
                     <button class="button is-small is-fullwidth">{{catalogElement.price}}€</button>
                 </a>
             </div>

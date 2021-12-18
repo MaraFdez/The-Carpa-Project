@@ -15,69 +15,21 @@ import java.util.Map;
 @Service
 public class PaymentService implements IPaymentService {
 
-    @Value("${BASE_URL}")
-    private String baseURL;
-
     @Value("${STRIPE_SECRET_KEY}")
     private String secretKey;
 
-//    // Set the currency and name of the product
-//    public SessionCreateParams.LineItem.PriceData createPriceData(PaymentDTO paymentDTO) {
-//        return SessionCreateParams.LineItem.PriceData.builder()
-//                .setCurrency("eur")
-//                .setUnitAmount(Long.valueOf(paymentDTO.getPrice().multiply(new BigDecimal(100)).toString()))
-//                .setProductData(
-//                        SessionCreateParams.LineItem.PriceData.ProductData.builder()
-//                                .setName(paymentDTO.getProductName())
-//                                .build())
-//                .build();
-//    }
-//
-//    // Return an object containing the quantity and price of a particular product
-//    public SessionCreateParams.LineItem createSessionLineItem(PaymentDTO paymentDTO) {
-//        return SessionCreateParams.LineItem.builder()
-//                // Set price for each product
-//                .setPriceData(createPriceData(paymentDTO))
-//                // Set quantity for each product
-//                .setQuantity(Long.parseLong(String.valueOf(paymentDTO.getQuantity())))
-//                .build();
-//    }
-//
-//    // Create session for a particular payment session
-//    public Session createSession(List<PaymentDTO> paymentDTOList) throws StripeException {
-//
-//        // Supply success and failure url for stripe
-//        String successURL = baseURL + "payment/success";
-//        String failedURL = baseURL + "payment/failed";
-//
-//        // Set the private key
-//        Stripe.apiKey = apiKey;
-//
-//        List<SessionCreateParams.LineItem> sessionItemsList = new ArrayList<>();
-//        for (PaymentDTO paymentDTO : paymentDTOList) {
-//            sessionItemsList.add(createSessionLineItem(paymentDTO));
-//        }
-//
-//        // build the session param
-//        SessionCreateParams params = SessionCreateParams.builder()
-//                .addPaymentMethodType(SessionCreateParams.PaymentMethodType.CARD)
-//                .setMode(SessionCreateParams.Mode.PAYMENT)
-//                .setCancelUrl(failedURL)
-//                .addAllLineItem(sessionItemsList)
-//                .setSuccessUrl(successURL)
-//                .build();
-//        return Session.create(params);
-//    }
 
     public PaymentIntent payment(PaymentDTO paymentDTO) throws StripeException {
         Stripe.apiKey = secretKey;
+        PaymentIntent paymentIntent = new PaymentIntent();
         Map<String, Object> params = new HashMap<>();
+        params.put("token", paymentDTO.getDescription());
         params.put("amount", paymentDTO.getAmount());
         params.put("currency", paymentDTO.getCurrency());
         ArrayList payment_method_types = new ArrayList();
         payment_method_types.add("card");
         params.put("payment_method_types", payment_method_types);
-        return PaymentIntent.create(params);
+        return paymentIntent.create(params);
     }
 
     public PaymentIntent confirm(String id) throws StripeException {

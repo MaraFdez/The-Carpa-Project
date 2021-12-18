@@ -1,7 +1,6 @@
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { IUserData } from 'src/app/interfaces/user-data';
 import { UserService } from './../../services/user/user.service';
-import { ICatalogElement } from 'src/app/interfaces/catalog-element';
 import { WarehouseService } from 'src/app/services/warehouse/warehouse.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -34,6 +33,7 @@ export class WarehouseDetailComponent implements OnInit {
       this.catalogElementId = this.route.snapshot.params['id'];
 
       this.warehouseService.getCatalogElement(this.catalogElementId).subscribe(result => {
+        this.getUserDetails(result.username);
         let catalogElement : CatalogElement = new CatalogElement(
           result.id,
           result.username,
@@ -44,7 +44,6 @@ export class WarehouseDetailComponent implements OnInit {
           result.publicationDate,
           result.data
         )
-        this.getUserDetails(result.username);
         this.selectedCatalogElement = catalogElement;
       });
 
@@ -79,4 +78,5 @@ export class WarehouseDetailComponent implements OnInit {
         console.log('This design was not deleted.');
       }
     }
+    
 }

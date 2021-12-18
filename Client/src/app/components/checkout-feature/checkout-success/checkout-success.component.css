@@ -1,0 +1,27 @@
+.card {
+  width: 450px;
+  height: 320px;
+  align-content: center;
+  margin: 45px auto 50px auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.card-content {
+  display: flex;
+}
+
+.image {
+  margin: 85px auto auto 25px;
+}
+
+.title {
+  font-family: "Roboto", sans-serif;
+  margin: 107px 35px;
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.subtext {
+  margin: -100px auto 0px 23px;
+  font-size: 11px;
+}

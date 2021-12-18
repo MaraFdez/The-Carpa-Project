@@ -18,12 +18,11 @@ export class HeaderComponent implements OnInit {
     private userService : UserService,
     private route: ActivatedRoute, 
     private router: Router
-  ) { 
-    console.log("Log in -> " + this.isUserLoggedIn());
-  }
+  ) { }
 
   ngOnInit(): void {
     this.authenticationService.restoreSession();
+    console.log("Log in -> " + this.isUserLoggedIn());
     this.userService.getCurrentUser();
     this.currentUser = JSON.parse(localStorage.getItem("userDetails")!);
   }

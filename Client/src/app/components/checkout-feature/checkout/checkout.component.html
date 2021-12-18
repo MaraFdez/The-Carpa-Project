@@ -1,0 +1,28 @@
+
+<div class="card">
+    <button class="delete" type="delete" (click)="goBack()">BACK</button>
+    
+    <div class="content">
+        <p class="title">PAYMENT PROCEDURE</p>
+        <p class="subtext">Powered by <b>Stripe</b></p>
+    
+    </div>
+    
+    <div class="element">
+        <p>{{selectedCatalogElement.projectName}} - {{selectedCatalogElement.price}}€</p>
+    </div>
+
+    <form class="card-content" novalidate (ngSubmit)="paymentMethod()" [formGroup]="stripeForm" #f="ngForm">
+        <div class="form-group">
+            <input class="input is-small" type="text" id="name" formControlName="name" placeholder="Name on card" required>
+        </div>
+
+        <div id="card-element" class="field"></div>
+        <div *ngIf="error" class="alert alert-danger">
+            {{error}}
+        </div>
+        
+        <button class="btn" type="submit" [disabled]="!f.valid">Proceed</button>
+    </form>
+</div>
+

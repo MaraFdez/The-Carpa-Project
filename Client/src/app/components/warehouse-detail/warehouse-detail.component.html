@@ -4,7 +4,7 @@
     <span class="group" *ngIf="setUser() as user">
         <button type="button" class="delete" [ngClass]="{hidden: user.uid != userData.uid}" (click)="deleteItem(selectedCatalogElement.id)">Delete</button>
     </span>
-    <div class="card-image" *ngIf="this.selectedCatalogElement.image == null || this.selectedCatalogElement.image == ''">
+    <div class="card-image" *ngIf="this.selectedCatalogElement.image == null || this.selectedCatalogElement.image == '' || this.selectedCatalogElement.image == undefined" >
         <img src="../../../assets/img/ultimakerlinea.png" alt="Model image" width="200">
     </div>
     <div class="card-image" *ngIf="this.selectedCatalogElement.image != null && this.selectedCatalogElement.image != ''">
@@ -16,7 +16,9 @@
             <h2 class="projectName">
                 {{ selectedCatalogElement.projectName | uppercase }}
             </h2>
-            <button type="button" class="price">{{selectedCatalogElement.price}} €</button>
+            <a [routerLink]="['/' + selectedCatalogElement.id + '/checkout']">
+                <button type="button" class="price">{{selectedCatalogElement.price}} €</button>
+            </a>
         </span>
         <p class="subtitle">A creation by 
             <a [routerLink]="['/myProfile/user/', selectedCatalogElement.username]">{{selectedCatalogElement.username}}</a>
@@ -24,6 +26,7 @@
         <p class="info">{{selectedCatalogElement.description}}</p>
         <p class="date">Published on {{selectedCatalogElement.publicationDate}}</p>
     </div>
+
 
 </div>
 

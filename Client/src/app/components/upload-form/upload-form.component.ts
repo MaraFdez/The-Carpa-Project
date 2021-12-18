@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { WarehouseService } from 'src/app/services/warehouse/warehouse.service';
 import { Component, OnInit } from '@angular/core';
-import { FileUploadService } from 'src/app/services/file-upload/file-upload.service';
+import { FileUploadService } from 'src/app/services/file-upload-firebase/file-upload.service';
 import { FileUpload } from 'src/app/model/file-upload.model';
 import { IFormElement } from 'src/app/interfaces/form-element';
 import { User } from 'src/app/interfaces/user';
@@ -66,7 +66,6 @@ export class UploadFormComponent implements OnInit {
           this.warehouseService.createCatalogElement(this.catalogElement, file).subscribe(data => {
           console.log(data);
           this.catalogElement = this.newCatalogElement();
-          window.location.reload();
         },
         error => console.log(error),
         () => console.log('Catalog element stored'))

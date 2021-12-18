@@ -12,7 +12,11 @@ export class DetailsUpdateService {
 
   constructor(private http : HttpClient) {}
 
-  updateElementDetails(id: number, details : Details): Observable<any> {
+  getElementDetails(id : number) : Observable<any> {
+    return this.http.get(`http://localhost:8082/details/${id}`);
+  }
+
+  updateElementDetails(id : number, details : Details): Observable<any> {
     return this.http.patch(`${this.baseUrl}/${id}`, details);
   }
 

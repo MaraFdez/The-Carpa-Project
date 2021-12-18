@@ -79,7 +79,8 @@ a {
 
 .price {
   margin: -2px 6px;
-  width: 75px;
+  width: 70px;
+  height: 25px;
   border: none;
   border-radius: 4px;
 }
